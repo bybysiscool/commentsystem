@@ -1,4 +1,4 @@
-origin: https://github.com/yourusername/yourrepo
+origin: https://github.com/bybysiscool/commentsystem
 branch: main
 comments:
   path: "data/comments/{options.postSlug}"
