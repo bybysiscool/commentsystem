@@ -1,19 +1,7 @@
-origin: https://github.com/bybysiscool/commentsystem
-branch: main
-comments:
-  path: "data/comments/{options.postSlug}"
-  filename: "{@timestamp}"
-  fields:
-    name:
-      type: "string"
-      required: true
-    email:
-      type: "string"
-      required: false
-    comment:
-      type: "string"
-      required: true
-  allowedFields: ["name", "email", "comment"]
-  moderation: true
-  commitMessage: "New comment added."
-  format: "yaml"
+allowedFields: ["name", "message"]
+branch: "main"
+commitMessage: "New comment by {name}"
+path: "_data/comments"
+requiredFields: ["name", "message"]
+transforms:
+  message: "md"
