@@ -1,0 +1,27 @@
+<form id="commentForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <textarea name="message" placeholder="Your Comment" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const form = document.getElementById('commentForm');
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        const response = await fetch('https://<YOUR_STATICMAN_INSTANCE>/v3/entry/github/<USERNAME>/<REPOSITORY>/<BRANCH>', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            alert('Comment submitted!');
+        } else {
+            alert('Failed to submit comment.');
+        }
+    };
+</script>
