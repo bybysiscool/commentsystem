@@ -1,0 +1,19 @@
+origin: https://github.com/yourusername/yourrepo
+branch: main
+comments:
+  path: "data/comments/{options.postSlug}"
+  filename: "{@timestamp}"
+  fields:
+    name:
+      type: "string"
+      required: true
+    email:
+      type: "string"
+      required: false
+    comment:
+      type: "string"
+      required: true
+  allowedFields: ["name", "email", "comment"]
+  moderation: true
+  commitMessage: "New comment added."
+  format: "yaml"
